@@ -1,0 +1,16 @@
+electric-fw is a Python set of modules for complex event processing.
+
+==linkedevents.py==
+
+Allows defining 1 to N associated events. The module defines the class LinkedEvent, featuring the same threading.Event methods (see Python docs). However, some of this methods present additional behavior:
+
+- set() : sets the current event and also all the linked events.
+- clear() : clear the current and linked events.
+
+This behaviour is not bidirectional.
+
+The class offers two additional methods:
+
+- add_link( event ) : links on event to the current LinkedEvent instance.
+- remove_link( event ) : unlinks the event from the current instance.
+
