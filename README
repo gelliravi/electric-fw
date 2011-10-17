@@ -7,7 +7,7 @@ Allows defining 1 to N associated events. The module defines the class LinkedEve
 - set() : sets the current event and also all the linked events.
 - clear() : clear the current and linked events.
 
-This behaviour is not bidirectional.
+This behaviour is not bidirectional. That is, setting or clearing the linked events will not set the current event.
 
 The class offers two additional methods:
 
