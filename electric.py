@@ -1,6 +1,6 @@
 from threading import Event
 
-class LinkedEvent( ):
+class BranchEvent( ):
   
   def __init__( self ):
     self.__event = Event()
@@ -31,5 +31,3 @@ class LinkedEvent( ):
 
   def isSet( self ):
     return self.__event.isSet()
-
-

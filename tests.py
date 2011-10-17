@@ -1,12 +1,12 @@
 import unittest
-from linkedevents import LinkedEvent
+from electric import BranchEvent
 
-class LinkedEventsTest( unittest.TestCase ):
+class BranchEventsTest( unittest.TestCase ):
 
   def setUp( self ):
-    self.event1 = LinkedEvent()
-    self.event2 = LinkedEvent()
-    self.event3 = LinkedEvent()
+    self.event1 = BranchEvent()
+    self.event2 = BranchEvent()
+    self.event3 = BranchEvent()
 
   def test_is_set_and_clear( self ):
     self.assertFalse( self.event1.is_set() )
