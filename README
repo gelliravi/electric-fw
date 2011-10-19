@@ -1,8 +1,15 @@
 electric-fw is a Python set of modules for complex event processing.
 
+==electric.LinkedEvent== 
+
+This abstract class features the same threading. Event methods (see Python docs). It also offers two additional methods:
+
+- add_link( event ) : links on event to the current BranchEvent instance.
+- remove_link( event ) : unlinks the event from the current instance.
+
 ==electric.BranchEvent==
 
-Allows defining 1 to N associated events. The class features the same threading.Event methods (see Python docs). However, some of this methods present additional behavior:
+Allows defining 1 to N associated events. Redefines the parent LinkedEvent methos in order to present additional behavior:
 
 - set() : sets the current event and also all the linked events.
 - clear() : clear the current and linked events.
@@ -14,3 +21,15 @@ The class offers two additional methods:
 - add_link( event ) : links on event to the current BranchEvent instance.
 - remove_link( event ) : unlinks the event from the current instance.
 
+==electric.HubEvent==
+
+Allow defining N to 1 associated events. Some of its methods present additional behavior:
+
+- set() : check the linked events and set the current event depending on the state of them.
+- clear() : check the linked events and clear the current event depending on the state of them.
+
+There are two implementations of the Hub event: AND and OR. They behave when setting and clearing like the AND and OR logic functions being set=0, clear=0, and input=linked events and output=this event.
+
+This behavior is not bidirectional. That is, setting or clearing the current event will not set or clear the linked events.
+
+Additionally, when adding a link, the class checks that it belongs to the BranchEvent class. This is needed to perform the connection between the linked event and the current event when setting and clearing.
