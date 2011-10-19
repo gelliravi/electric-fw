@@ -1,5 +1,5 @@
 import unittest
-from electric import BranchEvent
+from electric import BranchEvent, ANDHubEvent, ORHubEvent
 
 class BranchEventsTest( unittest.TestCase ):
 
@@ -56,6 +56,7 @@ class BranchEventsTest( unittest.TestCase ):
     self.event1.remove_link( self.event2 )
     with self.assertRaises( ValueError ):
       self.event1.remove_link( self.event2 )
+
 
 if __name__ == '__main__':
   unittest.main()
